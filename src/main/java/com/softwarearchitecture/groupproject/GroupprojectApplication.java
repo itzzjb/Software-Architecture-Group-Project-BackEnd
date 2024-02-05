@@ -8,5 +8,6 @@ public class GroupprojectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GroupprojectApplication.class, args);
+
 	}
 }
