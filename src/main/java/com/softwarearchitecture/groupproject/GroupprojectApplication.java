@@ -10,6 +10,9 @@ public class GroupprojectApplication {
 		SpringApplication.run(GroupprojectApplication.class, args);
 		System.out.println("Hello World");
 		System.out.println("Hello World");
+		System.out.println("Hello World");
+		System.out.println("Hello World");
+
 	}
 
 }
