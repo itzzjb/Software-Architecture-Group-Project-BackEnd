@@ -1,4 +1,3 @@
-Controller Layer:
-This layer is responsible for handling incoming HTTP requests.
-Controllers receive requests, process them, and interact with the service layer to retrieve or manipulate data.
-Controllers are often annotated with @Controller or @RestController.
+Configuration Layer:
+This layer includes configuration files and classes.
+Configuration can be done using annotations like @Configuration, @Bean, or through XML configuration
