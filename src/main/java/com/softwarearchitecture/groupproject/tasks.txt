@@ -1,0 +1,8 @@
+todo: 2024/02/05 - Create classes for entity, repository and control layers.
+
+Januda - User, Db Config, Order
+Mayura - Product, Category
+Thevindu - Cart, Wishlist
+
+Visura - Github / SpringBoot tutorials
+Uda - Github / SpringBoot tutorials
