@@ -1,0 +1,3 @@
+Entity Layer:
+Entities represent the application’s data model and are often mapped to database tables.
+These classes typically contain fields annotated with JPA annotations (@Entity, @Column, etc.) for database mapping.
