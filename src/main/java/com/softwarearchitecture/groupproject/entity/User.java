@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="users")
 public class User {
-
     @Id
     @GeneratedValue
     private int userId;
