@@ -1,20 +1,29 @@
 package com.softwarearchitecture.groupproject.entity;
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
-@Getter
-@AllArgsConstructor
 @Entity
-@Table(name = "Category")
+@Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue
     private int categoryId;
 
-    @Column(nullable = false)
+    @Column
     private String categoryName;
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }
