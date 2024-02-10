@@ -6,3 +6,5 @@ Thevindu - Cart, Wishlist
 
 Visura - Github / SpringBoot tutorials
 Uda - Github / SpringBoot tutorials
+
+todo: create foreign keys
