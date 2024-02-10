@@ -1,12 +1,19 @@
 package com.softwarearchitecture.groupproject.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 //POJO class for Cart
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "cart")
 public class Cart {
-
 
     @Id
     public int cartId;
@@ -22,36 +29,4 @@ public class Cart {
     @Column
     public int totalProductPrice;
 
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getTotalProductPrice() {
-        return totalProductPrice;
-    }
-
-    public void setTotalProductPrice(int totalProductPrice) {
-        this.totalProductPrice = totalProductPrice;
-    }
 }
