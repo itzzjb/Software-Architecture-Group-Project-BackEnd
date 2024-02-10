@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "cart")
 public class Cart {
 
+
+    @Id
+    public int cartId;
     @Column
     public int userId;
 
