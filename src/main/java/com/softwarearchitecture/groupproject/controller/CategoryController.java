@@ -15,16 +15,16 @@ public class CategoryController {
     CategoryRepository categoryRepository;
 
     @Autowired
-    public CategoryController(ProductRepository productRepository) {
+    public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/category")
     public Category getProduct(@RequestParam int id) {
         return categoryRepository.findById(id);
     }
 
-    @PostMapping("/product")
+    @PostMapping("/category")
     public void addProduct(@RequestBody Category category) {categoryRepository.save(category);}
 
 }

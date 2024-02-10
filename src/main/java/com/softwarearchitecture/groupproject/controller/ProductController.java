@@ -17,7 +17,7 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/product")
     public Product getProduct(@RequestParam int id) {
         return productRepository.findById(id);
     }
