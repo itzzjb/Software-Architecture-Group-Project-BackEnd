@@ -1,5 +1,4 @@
 package com.softwarearchitecture.groupproject.controller;
-
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +15,9 @@ public class CategoryController {
     }
 
     @GetMapping("/category")
-    public Category getCategory(@RequestParam int id) {
-        return categoryRepository.findById(id);
-    }
+    public Category getCategory(@RequestParam int id) { return categoryRepository.findById(id); }
 
     @PostMapping("/category")
-    public void addCategory(@RequestBody Category category) {categoryRepository.save(category);}
+    public void addCategory(@RequestBody Category category) { categoryRepository.save(category); }
 
 }
