@@ -1,11 +1,8 @@
 package com.softwarearchitecture.groupproject.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-
+// POJO class for Category
 @Setter
 @Getter
 @NoArgsConstructor

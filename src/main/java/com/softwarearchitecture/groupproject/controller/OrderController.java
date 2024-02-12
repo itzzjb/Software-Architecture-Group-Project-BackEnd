@@ -21,6 +21,6 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody Order order) {orderRepository.save(order);}
+    public void addOrder(@RequestBody Order order) { orderRepository.save(order); }
 
 }
