@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ProductController {
 
+    // Dependency Injection
     @Autowired
     ProductRepository productRepository;
 

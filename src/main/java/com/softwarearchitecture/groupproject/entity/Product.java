@@ -2,9 +2,9 @@ package com.softwarearchitecture.groupproject.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-//POJO class for Product
-@Setter
-@Getter
+// POJO class for Product
+// Used lombok annotations for creating getters, setters and constructors
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
