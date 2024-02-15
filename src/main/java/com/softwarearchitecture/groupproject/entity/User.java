@@ -3,8 +3,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 // POJO class for User
-@Setter
-@Getter
+// Used lombok annotations for creating getters, setters and constructors
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

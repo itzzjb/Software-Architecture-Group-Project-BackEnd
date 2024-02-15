@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CartController {
+
+    // Dependency Injection
     @Autowired
     CartRepository cartRepository;
 
