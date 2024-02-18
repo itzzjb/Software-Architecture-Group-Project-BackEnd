@@ -2,18 +2,21 @@ package com.softwarearchitecture.groupproject.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-// POJO class for Category
+// POJO class for Wishlist
 // Used lombok annotations for creating getters, setters and constructors
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "wishlist")
+public class Wishlist {
+
     @Id
-    private int categoryId;
+    public int wishlistId;
+    @Column
+    public int userId;
 
     @Column
-    private String categoryName;
+    public int productId;
 
 }

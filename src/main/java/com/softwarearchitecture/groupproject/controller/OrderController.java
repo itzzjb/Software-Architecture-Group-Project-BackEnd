@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class OrderController {
 
+    // Dependency Injection
     @Autowired
     OrderRepository orderRepository;
 
@@ -21,6 +22,6 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody Order order) {orderRepository.save(order);}
+    public void addOrder(@RequestBody Order order) { orderRepository.save(order); }
 
 }

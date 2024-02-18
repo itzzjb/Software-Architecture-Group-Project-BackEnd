@@ -1,5 +1,4 @@
 package com.softwarearchitecture.groupproject.controller;
-
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CategoryController {
+
+    // Dependency Injection
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -16,11 +17,9 @@ public class CategoryController {
     }
 
     @GetMapping("/category")
-    public Category getProduct(@RequestParam int id) {
-        return categoryRepository.findById(id);
-    }
+    public Category getCategory(@RequestParam int id) { return categoryRepository.findById(id); }
 
     @PostMapping("/category")
-    public void addProduct(@RequestBody Category category) {categoryRepository.save(category);}
+    public void addCategory(@RequestBody Category category) { categoryRepository.save(category); }
 
 }

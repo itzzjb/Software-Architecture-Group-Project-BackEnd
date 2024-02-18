@@ -1,14 +1,10 @@
 package com.softwarearchitecture.groupproject.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-// This is a POJO class for user
-
-@Setter
-@Getter
+// POJO class for User
+// Used lombok annotations for creating getters, setters and constructors
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
