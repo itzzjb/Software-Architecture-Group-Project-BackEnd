@@ -18,8 +18,8 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-//    @GetMapping("/category")
-//    public Category getCategory(@RequestParam int id) { return categoryService.findById(id); }
+    @GetMapping("/category")
+    public Category getCategory(@RequestParam int id) { return categoryService.findCategory(id); }
 
     @PostMapping("/category")
     public void addCategory(@RequestBody CategoryDto categoryDto) { categoryService.addCategory(categoryDto); }

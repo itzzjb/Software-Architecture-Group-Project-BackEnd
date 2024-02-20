@@ -26,4 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = CategoryEntityMapper.dtoToEntity(categoryDto);
         categoryRepository.save(category);
     }
+
+    @Override
+    public Category findCategory(int id) {
+        Category category =  categoryRepository.findById(id);
+        return category;
+    }
 }
