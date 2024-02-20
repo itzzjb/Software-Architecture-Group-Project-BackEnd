@@ -13,6 +13,13 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AddToCartServiceImpl implements AddToCartService {
     CartRepository cartRepository;
+
+    @Override
+    public Cart findCart(int id) {
+        Cart cart = cartRepository.findById(id);
+        return cart;
+    }
+
     @Override
     public void addToCart(AddToCartDto addToCartDto) {
         Cart cart = AddToCartEntityMapper.dtoToEntity(addToCartDto);

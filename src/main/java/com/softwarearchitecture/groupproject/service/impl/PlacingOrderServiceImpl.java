@@ -25,5 +25,11 @@ public class PlacingOrderServiceImpl implements PlacingOrderService {
         orderRepository.save(order);
     }
 
+    @Override
+    public Order findOrder(int id) {
+        Order order =  orderRepository.findById(id);
+        return order;
+    }
+
 
 }

@@ -24,4 +24,11 @@ public class AddingAProductServiceImpl implements AddingAProductService {
         Product product = AddingAProductEntityMapper.dtoToEntity(addingAProductDto);
         productRepository.save(product);
     }
+
+    @Override
+    public Product findProduct(int id) {
+        Product product = productRepository.findById(id);
+        return product;
+    }
+
 }
