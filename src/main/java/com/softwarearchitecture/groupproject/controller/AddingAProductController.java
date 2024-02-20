@@ -1,6 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.AddingAProductDto;
 import com.softwarearchitecture.groupproject.entity.Product;
-import com.softwarearchitecture.groupproject.repository.ProductRepository;
+import com.softwarearchitecture.groupproject.service.AddingAProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,19 +10,21 @@ public class AddingAProductController {
 
     // Dependency Injection
     @Autowired
-    ProductRepository productRepository;
+    AddingAProductService addingAProductService;
 
     @Autowired
-    public AddingAProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public AddingAProductController(AddingAProductService addingAProductService) {
+        this.addingAProductService = addingAProductService;
     }
 
+    /*
     @GetMapping("/product")
     public Product getProduct(@RequestParam int id) {
         return productRepository.findById(id);
     }
+    */
 
     @PostMapping("/product")
-    public void addProduct(@RequestBody Product product) { productRepository.save(product); }
+    public void addProduct(@RequestBody AddingAProductDto addingAProductDto) { addingAProductService.addProduct(addingAProductDto); }
 
 }
