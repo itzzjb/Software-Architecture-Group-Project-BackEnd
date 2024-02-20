@@ -2,7 +2,9 @@ package com.softwarearchitecture.groupproject.repository;
 import com.softwarearchitecture.groupproject.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
-    User findById(int id);
+import java.util.Optional;
 
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+    Optional <User> findByEmail (String email);
 }

@@ -1,8 +1,6 @@
 package com.softwarearchitecture.groupproject.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -10,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 public class UserLoginDto {
 
-    private int email;
-    private int password;
+    private String email;
+    private String password;
 
 }
