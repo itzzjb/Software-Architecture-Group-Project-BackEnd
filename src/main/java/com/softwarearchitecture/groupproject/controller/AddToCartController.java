@@ -1,5 +1,6 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.AddToCartDto;
+import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.service.AddToCartService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,8 @@ public class AddToCartController {
     AddToCartService addToCartService;
 
 
-    /*@GetMapping("/cart")
-    public Cart getCart(@RequestParam int id) { return cartRepository.findById(id); }*/
+    @GetMapping("/cart")
+    public Cart getCart(@RequestParam int id) { return addToCartService.findCart(id);}
 
     @PostMapping("/cart")
     public void addCart(@RequestBody AddToCartDto addToCartDto) { addToCartService.addToCart(addToCartDto); }
