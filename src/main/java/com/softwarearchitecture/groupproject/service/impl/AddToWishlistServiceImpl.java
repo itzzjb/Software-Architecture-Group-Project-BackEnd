@@ -22,4 +22,10 @@ public class AddToWishlistServiceImpl implements AddToWishlistService {
         Wishlist wishlist = AddToWishlistEntityMapper.dtoToEntity(addToWishlistDto);
         wishlistRepository.save(wishlist);
     }
+
+    @Override
+    public Wishlist findWishlist(int id) {
+        Wishlist wishlist = wishlistRepository.findById(id);
+        return wishlist;
+    }
 }

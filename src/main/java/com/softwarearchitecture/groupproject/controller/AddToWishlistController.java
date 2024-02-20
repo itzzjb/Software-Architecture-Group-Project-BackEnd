@@ -15,8 +15,8 @@ public class AddToWishlistController {
     @Autowired
     AddToWishlistService addToWishlistService;
 
-    /*@GetMapping("/wishlist")
-    public Wishlist getWishlist(@RequestParam int id) { return wishlistRepository.findById(id); }*/
+    @GetMapping("/wishlist")
+    public Wishlist getWishlist(@RequestParam int id) { return addToWishlistService.findWishlist(id); }
 
     @PostMapping("/wishlist")
     public void addWishlist(@RequestBody AddToWishlistDto addToWishlistDto) { addToWishlistService.addToWishlist(addToWishlistDto); }
