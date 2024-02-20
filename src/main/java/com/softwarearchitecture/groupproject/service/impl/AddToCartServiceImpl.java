@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class AddToCartServiceImp implements AddToCartService {
+public class AddToCartServiceImpl implements AddToCartService {
     CartRepository cartRepository;
     @Override
     public void addToCart(AddToCartDto addToCartDto) {

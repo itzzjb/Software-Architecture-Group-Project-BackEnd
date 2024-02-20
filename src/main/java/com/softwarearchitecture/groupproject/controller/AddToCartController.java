@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
-public class CartController {
+public class AddToCartController {
 
     // Dependency Injection
 
