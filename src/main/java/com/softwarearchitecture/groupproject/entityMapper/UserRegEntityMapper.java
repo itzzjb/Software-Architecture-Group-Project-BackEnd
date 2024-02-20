@@ -11,8 +11,8 @@ public class UserRegEntityMapper {
                 userRegistrationDto.getUserId(),
                 userRegistrationDto.getFirstName(),
                 userRegistrationDto.getLastName(),
-                userRegistrationDto.getPhone(),
                 userRegistrationDto.getEmail(),
+                userRegistrationDto.getPhone(),
                 userRegistrationDto.getPassword()
         );
     }
