@@ -6,7 +6,9 @@ import com.softwarearchitecture.groupproject.entityMapper.AddingAProductEntityMa
 import com.softwarearchitecture.groupproject.repository.ProductRepository;
 import com.softwarearchitecture.groupproject.service.AddingAProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AddingAProductServiceImpl implements AddingAProductService {
 
     @Autowired
