@@ -17,12 +17,12 @@ public class AddingAProductController {
         this.addingAProductService = addingAProductService;
     }
 
-    /*
+
     @GetMapping("/product")
     public Product getProduct(@RequestParam int id) {
-        return productRepository.findById(id);
+        return addingAProductService.findProduct(id);
     }
-    */
+
 
     @PostMapping("/product")
     public void addProduct(@RequestBody AddingAProductDto addingAProductDto) { addingAProductService.addProduct(addingAProductDto); }
