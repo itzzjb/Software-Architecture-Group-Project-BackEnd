@@ -5,14 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class ProductController {
+public class AddingAProductController {
 
     // Dependency Injection
     @Autowired
     ProductRepository productRepository;
 
     @Autowired
-    public ProductController(ProductRepository productRepository) {
+    public AddingAProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
