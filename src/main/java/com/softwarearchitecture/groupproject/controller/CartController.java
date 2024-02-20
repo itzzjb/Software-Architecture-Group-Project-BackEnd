@@ -1,10 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
-import com.softwarearchitecture.groupproject.dto.CartDto;
-import com.softwarearchitecture.groupproject.entity.Cart;
-import com.softwarearchitecture.groupproject.repository.CartRepository;
-import com.softwarearchitecture.groupproject.service.CartService;
+import com.softwarearchitecture.groupproject.dto.AddToCartDto;
+import com.softwarearchitecture.groupproject.service.AddToCartService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
@@ -13,12 +10,12 @@ public class CartController {
 
     // Dependency Injection
 
-    CartService cartService;
+    AddToCartService addToCartService;
 
 
     /*@GetMapping("/cart")
     public Cart getCart(@RequestParam int id) { return cartRepository.findById(id); }*/
 
     @PostMapping("/cart")
-    public void addCart(@RequestBody CartDto cartDto) { cartService.addToCart(cartDto); }
+    public void addCart(@RequestBody AddToCartDto addToCartDto) { addToCartService.addToCart(addToCartDto); }
 }
