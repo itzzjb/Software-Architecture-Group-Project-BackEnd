@@ -1,6 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.entity.Order;
 import com.softwarearchitecture.groupproject.repository.OrderRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +10,7 @@ public class PlacingOrderController {
 
     // Dependency Injection
     @Autowired
-    OrderRepository orderRepository;
+    PlacingOrderService placingOrderService;
 
     @Autowired
     public PlacingOrderController(OrderRepository orderRepository) {

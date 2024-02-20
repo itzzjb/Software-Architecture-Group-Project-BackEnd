@@ -20,4 +20,5 @@ public class PlacingOrderDto {
     private int totalPrice;
 
     private String dateTime;
+
 }
