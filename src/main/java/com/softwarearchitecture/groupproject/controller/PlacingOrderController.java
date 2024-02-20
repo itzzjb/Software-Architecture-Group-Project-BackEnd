@@ -24,7 +24,8 @@ public class PlacingOrderController {
     public Order getOrder(@RequestParam int id) {
         return orderRepository.findById(id);
     }
-*/
+    */
+
     @PostMapping("/order")
     public void addOrder(@RequestBody PlacingOrderDto placingOrderDto) {
         placingOrderService.placeOrder(placingOrderDto); }
