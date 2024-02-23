@@ -5,8 +5,6 @@ import com.softwarearchitecture.groupproject.service.UserRegisterService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @AllArgsConstructor
 @RestController
 
@@ -15,7 +13,7 @@ public class UserRegisterController {
     UserRegisterService userRegisterService;
 
     @GetMapping("/user")
-    public Optional<User> getUser(@RequestParam int id) {
+    public User getUser(@RequestParam int id) {
         return userRegisterService.findUser(id);
     }
 

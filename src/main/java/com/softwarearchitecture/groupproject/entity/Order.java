@@ -14,9 +14,8 @@ public class Order {
     @GeneratedValue
     private int orderId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column
+    private int userId;
 
     @Column
     private int totalQuantity;
@@ -27,6 +26,4 @@ public class Order {
     @Column
     private String dateTime;
 
-    public Order(int orderId, int userId, int totalQuantity, int totalPrice, String dateTime) {
-    }
 }
