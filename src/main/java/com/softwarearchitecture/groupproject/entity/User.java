@@ -11,7 +11,8 @@ import lombok.*;
 @Table(name="users")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private int userId;
 
     @Column
