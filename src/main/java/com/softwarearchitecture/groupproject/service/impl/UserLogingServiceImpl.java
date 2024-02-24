@@ -19,10 +19,10 @@ public class UserLogingServiceImpl implements UserLogingService {
 
     public Boolean userLogging(UserLoginDto userLoginDto) {
         String email = userLoginDto.getEmail();
-        Optional<User> user = userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);
 
         //Password Validation
-        if (Objects.equals(userLoginDto.getPassword() , user.get().getPassword())){
+        if (Objects.equals(userLoginDto.getPassword() , user.getPassword())){
             return true;
         }else
             return false;
