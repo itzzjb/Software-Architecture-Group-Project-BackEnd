@@ -28,7 +28,7 @@ public class UserRegistrationServiceImpl implements UserRegisterService {
     }
 
     @Override
-    public User findUser(int id) {
+    public User getUserById(int id) {
         User user = userRepository.findById(id);
         return user;
     }

@@ -16,7 +16,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 
     @Override
 
-    public Boolean userLogging(UserLoginDto userLoginDto) {
+    public Boolean userLogin(UserLoginDto userLoginDto) {
         String email = userLoginDto.getEmail();
         User user = userRepository.findByEmail(email);
 

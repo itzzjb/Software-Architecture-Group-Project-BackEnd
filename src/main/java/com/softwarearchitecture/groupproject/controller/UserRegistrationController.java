@@ -21,7 +21,7 @@ public class UserRegistrationController {
 
     @GetMapping
     public User getUser(@RequestParam int id) {
-        return userRegisterService.findUser(id);
+        return userRegisterService.getUserById(id);
     }
 
     @PostMapping

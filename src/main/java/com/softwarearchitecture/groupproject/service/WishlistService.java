@@ -7,6 +7,6 @@ public interface WishlistService {
 
     WishlistDto createWishlist(WishlistDto wishlistDto);
 
-    Wishlist findWishlist(int id);
+    Wishlist getWishlistById(int id);
 
 }

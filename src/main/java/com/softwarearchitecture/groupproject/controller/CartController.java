@@ -20,7 +20,7 @@ public class CartController {
     }
 
     @GetMapping
-    public Cart getCart(@RequestParam int id) { return cartService.findCart(id);}
+    public Cart getCart(@RequestParam int id) { return cartService.getCartById(id);}
 
     @PostMapping
     public ResponseEntity<CartDto> addCart(@RequestBody CartDto cartDto) {

@@ -20,7 +20,7 @@ public class CategoryController {
     }
 
     @GetMapping
-    public Category getCategory(@RequestParam int id) { return categoryService.findCategory(id); }
+    public Category getCategory(@RequestParam int id) { return categoryService.getCategoryById(id); }
 
     @PostMapping
     public ResponseEntity<CategoryDto> addCategory(@RequestBody CategoryDto categoryDto) {

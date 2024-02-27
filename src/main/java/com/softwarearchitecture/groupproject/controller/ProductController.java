@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping
     public Product getProduct(@RequestParam int id) {
-        return productService.findProduct(id);
+        return productService.getProductById(id);
     }
 
 

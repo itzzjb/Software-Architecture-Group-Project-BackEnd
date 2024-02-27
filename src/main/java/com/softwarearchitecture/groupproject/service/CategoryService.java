@@ -6,6 +6,6 @@ import com.softwarearchitecture.groupproject.entity.Category;
 public interface CategoryService {
     CategoryDto createCategory(CategoryDto categoryDto);
 
-    Category findCategory(int id);
+    Category getCategoryById(int id);
 
 }

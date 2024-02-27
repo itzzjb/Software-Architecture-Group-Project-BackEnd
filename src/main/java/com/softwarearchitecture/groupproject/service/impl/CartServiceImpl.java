@@ -22,7 +22,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart findCart(int id) {
+    public Cart getCartById(int id) {
         Cart cart = cartRepository.findById(id);
         return cart;
     }

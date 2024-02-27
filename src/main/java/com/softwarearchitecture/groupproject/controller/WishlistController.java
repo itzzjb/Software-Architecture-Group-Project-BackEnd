@@ -20,7 +20,7 @@ public class WishlistController {
     }
 
     @GetMapping
-    public Wishlist getWishlist(@RequestParam int id) { return wishlistService.findWishlist(id); }
+    public Wishlist getWishlist(@RequestParam int id) { return wishlistService.getWishlistById(id); }
 
     @PostMapping
     public ResponseEntity<WishlistDto> addWishlist(@RequestBody WishlistDto wishlistDto) {

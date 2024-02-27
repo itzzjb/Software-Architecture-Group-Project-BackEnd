@@ -6,5 +6,5 @@ import com.softwarearchitecture.groupproject.entity.User;
 public interface UserRegisterService {
     UserRegistrationDto createUser(UserRegistrationDto userRegistrationDto);
 
-    User findUser(int id);
+    User getUserById(int id);
 }
