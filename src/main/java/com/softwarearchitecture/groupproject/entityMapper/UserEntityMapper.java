@@ -4,7 +4,7 @@ import com.softwarearchitecture.groupproject.dto.UserRegistrationDto;
 import com.softwarearchitecture.groupproject.entity.User;
 
 public class UserEntityMapper {
-     public static User dtoToEntity(UserRegistrationDto userRegistrationDto){
+     public static User mapToUser(UserRegistrationDto userRegistrationDto){
         return new User(
                 userRegistrationDto.getUserId(),
                 userRegistrationDto.getFirstName(),
