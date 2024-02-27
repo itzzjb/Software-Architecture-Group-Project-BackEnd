@@ -7,5 +7,5 @@ public interface CartService {
 
     Cart findCart(int id);
 
-    void addToCart(CartDto cartDto);
+    CartDto createCart(CartDto cartDto);
 }

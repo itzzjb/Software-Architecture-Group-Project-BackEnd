@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class CategoryServiceImpl implements CategoryService {
+
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -22,9 +23,10 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public void addCategory(CategoryDto categoryDto) {
-        Category category = CategoryEntityMapper.mapToCategoryDto(categoryDto);
-        categoryRepository.save(category);
+    public CategoryDto createCategory(CategoryDto categoryDto) {
+        Category category = CategoryEntityMapper.mapToCategory(categoryDto);
+        Category savedCategory = categoryRepository.save(category);
+        return CategoryEntityMapper.mapToCategoryDto(savedCategory);
     }
 
     @Override

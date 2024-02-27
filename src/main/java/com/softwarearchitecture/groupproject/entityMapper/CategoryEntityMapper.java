@@ -7,14 +7,14 @@ import com.softwarearchitecture.groupproject.entity.Category;
 
 public class CategoryEntityMapper {
 
-    public static Category mapToCategoryDto(CategoryDto categoryDto) {
+    public static Category mapToCategory(CategoryDto categoryDto) {
         return new Category(
                 categoryDto.getCategoryId(),
                 categoryDto.getCategoryName()
         );
     }
 
-    public static CategoryDto mapToCategory(Category category) {
+    public static CategoryDto mapToCategoryDto(Category category) {
         return new CategoryDto(
                 category.getCategoryId(),
                 category.getCategoryName()

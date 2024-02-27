@@ -1,12 +1,14 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
-import com.softwarearchitecture.groupproject.repository.CategoryRepository;
 import com.softwarearchitecture.groupproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/category")
 public class CategoryController {
 
     @Autowired
@@ -17,10 +19,13 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/category")
+    @GetMapping
     public Category getCategory(@RequestParam int id) { return categoryService.findCategory(id); }
 
-    @PostMapping("/category")
-    public void addCategory(@RequestBody CategoryDto categoryDto) { categoryService.addCategory(categoryDto); }
+    @PostMapping
+    public ResponseEntity<CategoryDto> addCategory(@RequestBody CategoryDto categoryDto) {
+        CategoryDto savedCategoryDto = categoryService.createCategory(categoryDto);
+        return new ResponseEntity<>(savedCategoryDto, HttpStatus.CREATED);
+    }
 
 }

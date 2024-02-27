@@ -20,9 +20,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addProduct(ProductDto productDto) {
+    public ProductDto createProduct(ProductDto productDto) {
         Product product = ProductEntityMapper.mapToProduct(productDto);
-        productRepository.save(product);
+        Product savedProduct = productRepository.save(product);
+        return ProductEntityMapper.mapToProductDto(savedProduct);
     }
 
     @Override
