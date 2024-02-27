@@ -24,7 +24,7 @@ public class UserRegistrationController {
 
     @PostMapping
     public void addUser(@RequestBody UserRegistrationDto userRegistrationDto) {
-        userRegisterService.userRegistration(userRegistrationDto);
+        userRegisterService.createUser(userRegistrationDto);
     }
 
 }

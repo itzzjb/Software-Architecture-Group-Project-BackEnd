@@ -21,6 +21,6 @@ public class WishlistController {
     public Wishlist getWishlist(@RequestParam int id) { return wishlistService.findWishlist(id); }
 
     @PostMapping
-    public void addWishlist(@RequestBody WishlistDto wishlistDto) { wishlistService.addToWishlist(wishlistDto); }
+    public void addWishlist(@RequestBody WishlistDto wishlistDto) { wishlistService.createWishlist(wishlistDto); }
 
 }

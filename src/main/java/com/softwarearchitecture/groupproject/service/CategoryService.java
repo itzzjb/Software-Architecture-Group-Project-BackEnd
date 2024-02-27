@@ -4,7 +4,7 @@ import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
 
 public interface CategoryService {
-    void addCategory(CategoryDto categoryDto);
+    void createCategory(CategoryDto categoryDto);
 
     Category findCategory(int id);
 

@@ -21,7 +21,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void addToCart(CartDto cartDto) {
+    public void createCart(CartDto cartDto) {
         Cart cart = CartEntityMapper.mapToCartDto(cartDto);
         cartRepository.save(cart);
     }

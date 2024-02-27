@@ -5,7 +5,7 @@ import com.softwarearchitecture.groupproject.entity.Wishlist;
 
 public interface WishlistService {
 
-    void addToWishlist(WishlistDto wishlistDto);
+    void createWishlist(WishlistDto wishlistDto);
 
     Wishlist findWishlist(int id);
 

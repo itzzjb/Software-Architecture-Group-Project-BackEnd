@@ -21,6 +21,6 @@ public class CartController {
     public Cart getCart(@RequestParam int id) { return cartService.findCart(id);}
 
     @PostMapping
-    public void addCart(@RequestBody CartDto cartDto) { cartService.addToCart(cartDto); }
+    public void addCart(@RequestBody CartDto cartDto) { cartService.createCart(cartDto); }
 
 }
