@@ -3,6 +3,8 @@ import com.softwarearchitecture.groupproject.dto.UserRegistrationDto;
 import com.softwarearchitecture.groupproject.entity.User;
 import com.softwarearchitecture.groupproject.service.UserRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,8 +25,9 @@ public class UserRegistrationController {
     }
 
     @PostMapping
-    public void addUser(@RequestBody UserRegistrationDto userRegistrationDto) {
-        userRegisterService.createUser(userRegistrationDto);
+    public ResponseEntity<UserRegistrationDto> addUser(@RequestBody UserRegistrationDto userRegistrationDto) {
+        UserRegistrationDto savedUserRegistrationDto = userRegisterService.createUser(userRegistrationDto);
+        return new ResponseEntity<>(savedUserRegistrationDto, HttpStatus.CREATED);
     }
 
 }

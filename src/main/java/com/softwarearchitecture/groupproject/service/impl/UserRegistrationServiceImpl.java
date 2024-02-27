@@ -16,9 +16,10 @@ public class UserRegistrationServiceImpl implements UserRegisterService {
 
 
     @Override
-    public void createUser(UserRegistrationDto userRegistrationDto) {
+    public UserRegistrationDto createUser(UserRegistrationDto userRegistrationDto) {
         User user = UserEntityMapper.mapToUser(userRegistrationDto);
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        return UserEntityMapper.mapTOUserRegistrationDto(savedUser);
     }
 
     @Override
