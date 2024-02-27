@@ -1,16 +1,12 @@
 package com.softwarearchitecture.groupproject.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Setter
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class AddToCartDto {
+public class CartDto {
     public int cartId;
     public int userId;
     public int productId;

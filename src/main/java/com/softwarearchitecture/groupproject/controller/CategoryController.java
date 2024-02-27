@@ -1,15 +1,18 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
-import com.softwarearchitecture.groupproject.repository.CategoryRepository;
 import com.softwarearchitecture.groupproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/api/category")
 public class CategoryController {
 
-    // Dependency Injection
     @Autowired
     CategoryService categoryService;
 
@@ -18,10 +21,22 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/category")
-    public Category getCategory(@RequestParam int id) { return categoryService.findCategory(id); }
+    @GetMapping({"{id}"})
+    public ResponseEntity<CategoryDto> getCategory(@PathVariable("id") int id) {
+        CategoryDto categoryDto = categoryService.getCategoryById(id);
+        return ResponseEntity.ok(categoryDto);
+    }
 
-    @PostMapping("/category")
-    public void addCategory(@RequestBody CategoryDto categoryDto) { categoryService.addCategory(categoryDto); }
+    @PostMapping
+    public ResponseEntity<CategoryDto> addCategory(@RequestBody CategoryDto categoryDto) {
+        CategoryDto savedCategoryDto = categoryService.createCategory(categoryDto);
+        return new ResponseEntity<>(savedCategoryDto, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoryDto>> getAllCategories() {
+        List<CategoryDto> categories = categoryService.getAllCategories();
+        return ResponseEntity.ok(categories);
+    }
 
 }

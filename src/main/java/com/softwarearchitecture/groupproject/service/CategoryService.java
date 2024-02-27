@@ -3,9 +3,11 @@ package com.softwarearchitecture.groupproject.service;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
 
-public interface CategoryService {
-    void addCategory(CategoryDto categoryDto);
+import java.util.List;
 
-    Category findCategory(int id);
+public interface CategoryService {
+    CategoryDto createCategory(CategoryDto categoryDto);
+    CategoryDto getCategoryById(int categoryId);
+    List<CategoryDto> getAllCategories();
 
 }

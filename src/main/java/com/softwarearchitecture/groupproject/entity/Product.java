@@ -11,7 +11,7 @@ import lombok.*;
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
     private int productId;
 
     @Column
