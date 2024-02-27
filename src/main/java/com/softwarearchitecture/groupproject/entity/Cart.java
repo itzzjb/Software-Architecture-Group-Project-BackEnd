@@ -12,6 +12,7 @@ import lombok.*;
 public class Cart {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cart_id_seq")
     public int cartId;
     @Column
     public int userId;
