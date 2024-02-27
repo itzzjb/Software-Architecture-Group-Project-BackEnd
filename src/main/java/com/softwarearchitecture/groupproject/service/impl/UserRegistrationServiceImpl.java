@@ -6,14 +6,19 @@ import com.softwarearchitecture.groupproject.entityMapper.UserEntityMapper;
 import com.softwarearchitecture.groupproject.repository.UserRepository;
 import com.softwarearchitecture.groupproject.service.UserRegisterService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class UserRegistrationServiceImpl implements UserRegisterService {
 
+    @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    public UserRegistrationServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserRegistrationDto createUser(UserRegistrationDto userRegistrationDto) {

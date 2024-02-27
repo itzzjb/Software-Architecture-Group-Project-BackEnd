@@ -6,13 +6,19 @@ import com.softwarearchitecture.groupproject.entityMapper.WishlistEntityMapper;
 import com.softwarearchitecture.groupproject.repository.WishlistRepository;
 import com.softwarearchitecture.groupproject.service.WishlistService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class WishlistServiceImpl implements WishlistService {
 
+    @Autowired
     WishlistRepository wishlistRepository;
+
+    @Autowired
+    public WishlistServiceImpl(WishlistRepository wishlistRepository) {
+        this.wishlistRepository = wishlistRepository;
+    }
 
     @Override
     public WishlistDto createWishlist(WishlistDto wishlistDto) {

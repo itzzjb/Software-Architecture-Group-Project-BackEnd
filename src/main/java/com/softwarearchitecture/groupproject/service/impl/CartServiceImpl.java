@@ -6,13 +6,20 @@ import com.softwarearchitecture.groupproject.entityMapper.CartEntityMapper;
 import com.softwarearchitecture.groupproject.repository.CartRepository;
 import com.softwarearchitecture.groupproject.service.CartService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-@AllArgsConstructor
 public class CartServiceImpl implements CartService {
+
+    @Autowired
     CartRepository cartRepository;
+
+    @Autowired
+    public CartServiceImpl(CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
+    }
 
     @Override
     public Cart findCart(int id) {
