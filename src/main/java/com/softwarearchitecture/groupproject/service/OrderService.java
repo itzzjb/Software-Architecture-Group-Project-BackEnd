@@ -10,5 +10,6 @@ public interface OrderService {
     OrderDto getOrderById(int orderId);
     List<OrderDto> getAllOrders();
     // List<OrderDto> getAllOrders(int id);
+    OrderDto updateOrder(int orderId, OrderDto updatedOrderDto);
 
 }

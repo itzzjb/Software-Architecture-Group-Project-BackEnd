@@ -9,5 +9,5 @@ public interface WishlistService {
     WishlistDto createWishlist(WishlistDto wishlistDto);
     WishlistDto findWishlist(int wishlistId);
     // List<Wishlist> findAllWishlist(int id);
-
+    WishlistDto updateWishlist(int wishlistId, WishlistDto updatedWishlistDto);
 }

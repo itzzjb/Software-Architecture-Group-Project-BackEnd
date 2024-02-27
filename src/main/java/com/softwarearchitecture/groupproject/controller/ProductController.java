@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.dto.ProductDto;
 import com.softwarearchitecture.groupproject.entity.Product;
@@ -38,6 +39,12 @@ public class ProductController {
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable("id") int productId, @RequestBody ProductDto updatedProductDto) {
+        ProductDto productDto = productService.updateProduct(productId, updatedProductDto);
+        return ResponseEntity.ok(productDto);
     }
 
 }

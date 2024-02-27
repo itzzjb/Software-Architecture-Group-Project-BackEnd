@@ -1,8 +1,10 @@
 package com.softwarearchitecture.groupproject.service.impl;
 
 import com.softwarearchitecture.groupproject.dto.OrderDto;
+import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.entity.Order;
+import com.softwarearchitecture.groupproject.entityMapper.CartEntityMapper;
 import com.softwarearchitecture.groupproject.entityMapper.CategoryEntityMapper;
 import com.softwarearchitecture.groupproject.entityMapper.OrderEntityMapper;
 import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
@@ -46,6 +48,22 @@ public class OrderServiceImpl implements OrderService {
         return orders.stream().map((order) ->
                         OrderEntityMapper.mapToOrderDto(order))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderDto updateOrder(int orderId, OrderDto updatedOrderDto) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Order doesn't exist with the given id: " + orderId));
+
+        order.setOrderId(updatedOrderDto.getOrderId());
+        order.setUserId(updatedOrderDto.getUserId());
+        order.setTotalQuantity(updatedOrderDto.getTotalQuantity());
+        order.setTotalPrice(updatedOrderDto.getTotalPrice());
+        order.setDateTime(updatedOrderDto.getDateTime());
+
+        Order updatedOrder = orderRepository.save(order);
+        return OrderEntityMapper.mapToOrderDto(updatedOrder);
     }
 
 }

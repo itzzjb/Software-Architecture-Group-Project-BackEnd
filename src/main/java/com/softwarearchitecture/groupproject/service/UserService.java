@@ -8,4 +8,5 @@ public interface UserService {
     UserDto createUser(UserDto userDto);
     UserDto findUser(int userId);
     List<UserDto> getAllUsers();
+    UserDto updateUser(int userId, UserDto updatedUserDto);
 }

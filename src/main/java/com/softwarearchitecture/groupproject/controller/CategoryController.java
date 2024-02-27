@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.service.CategoryService;
@@ -37,6 +38,12 @@ public class CategoryController {
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         List<CategoryDto> categories = categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<CategoryDto> updateCategory(@PathVariable("id") int categoryId, @RequestBody CategoryDto updatedCategoryDto) {
+        CategoryDto categoryDto = categoryService.updateCategory(categoryId, updatedCategoryDto);
+        return ResponseEntity.ok(categoryDto);
     }
 
 }

@@ -15,7 +15,7 @@ public class UserEntityMapper {
         );
     }
 
-    public static UserDto mapTOUserRegistrationDto(User user) {
+    public static UserDto mapToUserDto(User user) {
         return new UserDto(
                 user.getUserId(),
                 user.getFirstName(),

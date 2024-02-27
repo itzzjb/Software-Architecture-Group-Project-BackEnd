@@ -30,4 +30,10 @@ public class CartController {
         return new ResponseEntity<>(savedCartDto, HttpStatus.CREATED);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<CartDto> updateCart(@PathVariable("id") int cartId, @RequestBody CartDto updatedCartDto) {
+        CartDto cartDto = cartService.updateCart(cartId, updatedCartDto);
+        return ResponseEntity.ok(cartDto);
+    }
+
 }

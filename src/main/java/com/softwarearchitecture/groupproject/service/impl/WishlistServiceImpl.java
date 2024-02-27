@@ -1,7 +1,9 @@
 package com.softwarearchitecture.groupproject.service.impl;
 
 import com.softwarearchitecture.groupproject.dto.WishlistDto;
+import com.softwarearchitecture.groupproject.entity.User;
 import com.softwarearchitecture.groupproject.entity.Wishlist;
+import com.softwarearchitecture.groupproject.entityMapper.UserEntityMapper;
 import com.softwarearchitecture.groupproject.entityMapper.WishlistEntityMapper;
 import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.WishlistRepository;
@@ -35,4 +37,19 @@ public class WishlistServiceImpl implements WishlistService {
                         new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + wishlistId));
         return WishlistEntityMapper.mapToWishlistDto(wishlist);
     }
+
+    @Override
+    public WishlistDto updateWishlist(int wishlistId, WishlistDto updatedWishlistDto) {
+        Wishlist wishlist = wishlistRepository.findById(wishlistId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + wishlistId));
+
+        wishlist.setWishlistId(updatedWishlistDto.getWishlistId());
+        wishlist.setUserId(updatedWishlistDto.getUserId());
+        wishlist.setProductId(updatedWishlistDto.getProductId());
+
+        Wishlist updatedWishlist = wishlistRepository.save(wishlist);
+        return WishlistEntityMapper.mapToWishlistDto(updatedWishlist);
+    }
+
 }
