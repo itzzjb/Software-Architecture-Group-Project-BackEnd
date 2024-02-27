@@ -4,14 +4,14 @@ import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.entityMapper.CartEntityMapper;
 import com.softwarearchitecture.groupproject.repository.CartRepository;
-import com.softwarearchitecture.groupproject.service.AddToCartService;
+import com.softwarearchitecture.groupproject.service.CartService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
 @Service
 @AllArgsConstructor
-public class AddToCartServiceImpl implements AddToCartService {
+public class CartServiceImpl implements CartService {
     CartRepository cartRepository;
 
     @Override

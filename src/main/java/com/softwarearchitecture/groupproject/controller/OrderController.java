@@ -1,7 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
-import com.softwarearchitecture.groupproject.service.PlacingOrderService;
+import com.softwarearchitecture.groupproject.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
 
     @Autowired
-    PlacingOrderService placingOrderService;
+    OrderService orderService;
 
     @Autowired
-    public OrderController(PlacingOrderService placingOrderService) {
-        this.placingOrderService = placingOrderService;
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @GetMapping("/order")
     public Order getOrder(@RequestParam int id) {
-        return placingOrderService.findOrder(id);
+        return orderService.findOrder(id);
     }
 
 
     @PostMapping("/order")
     public void addOrder(@RequestBody OrderDto orderDto) {
-        placingOrderService.placeOrder(orderDto); }
+        orderService.placeOrder(orderDto); }
 
 }

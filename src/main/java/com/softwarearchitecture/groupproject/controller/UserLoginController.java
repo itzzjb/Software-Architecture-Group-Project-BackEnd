@@ -1,7 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
 
 import com.softwarearchitecture.groupproject.dto.UserLoginDto;
-import com.softwarearchitecture.groupproject.service.UserLogingService;
+import com.softwarearchitecture.groupproject.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.*;
 public class UserLoginController {
 
     @Autowired
-    UserLogingService userLogingService;
+    UserLoginService userLoginService;
 
     @Autowired
-    public UserLoginController(UserLogingService userLogingService) {
-        this.userLogingService = userLogingService;
+    public UserLoginController(UserLoginService userLoginService) {
+        this.userLoginService = userLoginService;
     }
 
     @GetMapping("/userLogin")
     public ResponseEntity<String> userLogin(@RequestBody UserLoginDto userLoginDto) {
-        Boolean validity = userLogingService.userLogging(userLoginDto);
+        Boolean validity = userLoginService.userLogging(userLoginDto);
         if(validity){
             return ResponseEntity.ok().body("Logging Successfully Completed");
         }else

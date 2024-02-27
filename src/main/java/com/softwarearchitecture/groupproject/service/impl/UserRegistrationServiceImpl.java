@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class UserRegisterServiceImpl implements UserRegisterService {
+public class UserRegistrationServiceImpl implements UserRegisterService {
 
     UserRepository userRepository;
 
