@@ -1,6 +1,0 @@
-DTO (Data Transfer Object):
-DTOs are used to transfer data between layers and can help to encapsulate the data being sent between the client and the server.
-They can be used to shape the data for presentation without exposing the internal entity structure.
-
-todo:
-UserLoginDTO
