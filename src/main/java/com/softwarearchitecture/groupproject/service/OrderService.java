@@ -6,5 +6,5 @@ import com.softwarearchitecture.groupproject.entity.Order;
 public interface OrderService {
     OrderDto createOrder(OrderDto orderDto);
 
-    Order getOrderById(int id);
+    OrderDto getOrderById(int id);
 }

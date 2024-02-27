@@ -19,11 +19,11 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping
-    public Order getOrder(@RequestParam int id) {
-        return orderService.getOrderById(id);
+    @GetMapping("{id}")
+    public ResponseEntity<OrderDto> getOrder(@PathVariable("id") int id) {
+        OrderDto orderDto = orderService.getOrderById(id);
+        return ResponseEntity.ok(orderDto);
     }
-
 
     @PostMapping
     public ResponseEntity<OrderDto> addOrder(@RequestBody OrderDto orderDto) {

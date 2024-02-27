@@ -1,6 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.CartDto;
-import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +18,11 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @GetMapping
-    public Cart getCart(@RequestParam int id) { return cartService.getCartById(id);}
+    @GetMapping("{id}")
+    public ResponseEntity<CartDto> getCart(@PathVariable("id") int id) {
+        CartDto cartDto = cartService.getCartById(id);
+        return ResponseEntity.ok(cartDto);
+    }
 
     @PostMapping
     public ResponseEntity<CartDto> addCart(@RequestBody CartDto cartDto) {

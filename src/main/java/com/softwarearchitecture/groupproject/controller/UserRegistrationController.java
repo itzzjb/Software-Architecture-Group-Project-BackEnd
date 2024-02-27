@@ -19,9 +19,10 @@ public class UserRegistrationController {
         this.userRegisterService = userRegisterService;
     }
 
-    @GetMapping
-    public User getUser(@RequestParam int id) {
-        return userRegisterService.getUserById(id);
+    @GetMapping("{id}")
+    public ResponseEntity<UserRegistrationDto> getUser(@PathVariable("id") int id) {
+        UserRegistrationDto userRegistrationDto = userRegisterService.findUser(id);
+        return ResponseEntity.ok(userRegistrationDto);
     }
 
     @PostMapping

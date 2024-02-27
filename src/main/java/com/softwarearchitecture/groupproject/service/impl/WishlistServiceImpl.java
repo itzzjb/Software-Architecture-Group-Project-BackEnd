@@ -3,6 +3,7 @@ package com.softwarearchitecture.groupproject.service.impl;
 import com.softwarearchitecture.groupproject.dto.WishlistDto;
 import com.softwarearchitecture.groupproject.entity.Wishlist;
 import com.softwarearchitecture.groupproject.entityMapper.WishlistEntityMapper;
+import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.WishlistRepository;
 import com.softwarearchitecture.groupproject.service.WishlistService;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,10 @@ public class WishlistServiceImpl implements WishlistService {
     }
 
     @Override
-    public Wishlist getWishlistById(int id) {
-        Wishlist wishlist = wishlistRepository.findById(id);
-        return wishlist;
+    public WishlistDto findWishlist(int id) {
+        Wishlist wishlist = wishlistRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + id));
+        return WishlistEntityMapper.mapToWishlistDto(wishlist);
     }
 }

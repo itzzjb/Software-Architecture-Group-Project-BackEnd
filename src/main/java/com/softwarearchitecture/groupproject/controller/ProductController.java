@@ -19,11 +19,11 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping
-    public Product getProduct(@RequestParam int id) {
-        return productService.getProductById(id);
+    @GetMapping("{id}")
+    public ResponseEntity<ProductDto> getProduct(@PathVariable("id") int id) {
+        ProductDto productDto = productService.getProductById(id);
+        return ResponseEntity.ok(productDto);
     }
-
 
     @PostMapping
     public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto productDto) {

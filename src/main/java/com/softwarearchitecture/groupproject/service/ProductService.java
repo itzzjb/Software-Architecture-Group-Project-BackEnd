@@ -6,6 +6,6 @@ import com.softwarearchitecture.groupproject.entity.Product;
 public interface ProductService {
     ProductDto createProduct(ProductDto productDto);
 
-    Product getProductById(int id);
+    ProductDto getProductById(int id);
 }
 

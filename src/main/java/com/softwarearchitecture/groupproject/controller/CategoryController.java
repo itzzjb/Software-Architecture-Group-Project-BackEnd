@@ -19,8 +19,11 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
-    public Category getCategory(@RequestParam int id) { return categoryService.getCategoryById(id); }
+    @GetMapping({"{id}"})
+    public ResponseEntity<CategoryDto> getCategory(@PathVariable("id") int id) {
+        CategoryDto categoryDto = categoryService.getCategoryById(id);
+        return ResponseEntity.ok(categoryDto);
+    }
 
     @PostMapping
     public ResponseEntity<CategoryDto> addCategory(@RequestBody CategoryDto categoryDto) {
