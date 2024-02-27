@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/user")
 public class UserRegistrationController {
 
     @Autowired
@@ -16,12 +17,12 @@ public class UserRegistrationController {
         this.userRegisterService = userRegisterService;
     }
 
-    @GetMapping("/user")
+    @GetMapping
     public User getUser(@RequestParam int id) {
         return userRegisterService.findUser(id);
     }
 
-    @PostMapping("/user")
+    @PostMapping
     public void addUser(@RequestBody UserRegistrationDto userRegistrationDto) {
         userRegisterService.userRegistration(userRegistrationDto);
     }

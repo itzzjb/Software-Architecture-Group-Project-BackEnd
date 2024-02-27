@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/order")
 public class OrderController {
 
     @Autowired
@@ -16,13 +17,13 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/order")
+    @GetMapping
     public Order getOrder(@RequestParam int id) {
         return orderService.findOrder(id);
     }
 
 
-    @PostMapping("/order")
+    @PostMapping
     public void addOrder(@RequestBody OrderDto orderDto) {
         orderService.placeOrder(orderDto); }
 

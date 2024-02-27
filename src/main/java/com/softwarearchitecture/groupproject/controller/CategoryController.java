@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/category")
 public class CategoryController {
 
     @Autowired
@@ -17,10 +18,10 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/category")
+    @GetMapping
     public Category getCategory(@RequestParam int id) { return categoryService.findCategory(id); }
 
-    @PostMapping("/category")
+    @PostMapping
     public void addCategory(@RequestBody CategoryDto categoryDto) { categoryService.addCategory(categoryDto); }
 
 }

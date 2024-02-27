@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/cart")
 public class CartController {
 
     @Autowired
@@ -16,10 +17,10 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @GetMapping("/cart")
+    @GetMapping
     public Cart getCart(@RequestParam int id) { return cartService.findCart(id);}
 
-    @PostMapping("/cart")
+    @PostMapping
     public void addCart(@RequestBody CartDto cartDto) { cartService.addToCart(cartDto); }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/wishlist")
 public class WishlistController {
 
     @Autowired
@@ -16,10 +17,10 @@ public class WishlistController {
         this.wishlistService = wishlistService;
     }
 
-    @GetMapping("/wishlist")
+    @GetMapping
     public Wishlist getWishlist(@RequestParam int id) { return wishlistService.findWishlist(id); }
 
-    @PostMapping("/wishlist")
+    @PostMapping
     public void addWishlist(@RequestBody WishlistDto wishlistDto) { wishlistService.addToWishlist(wishlistDto); }
 
 }
