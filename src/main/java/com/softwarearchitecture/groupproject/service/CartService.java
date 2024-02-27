@@ -6,7 +6,7 @@ import com.softwarearchitecture.groupproject.entity.Cart;
 import java.util.List;
 
 public interface CartService {
-    CartDto getCartById(int id);
+    CartDto getCartById(int cartId);
     CartDto createCart(CartDto cartDto);
     // List<CartDto> getAllCart(int id);
 

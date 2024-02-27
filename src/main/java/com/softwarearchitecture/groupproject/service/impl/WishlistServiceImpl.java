@@ -29,10 +29,10 @@ public class WishlistServiceImpl implements WishlistService {
     }
 
     @Override
-    public WishlistDto findWishlist(int id) {
-        Wishlist wishlist = wishlistRepository.findById(id)
+    public WishlistDto findWishlist(int wishlistId) {
+        Wishlist wishlist = wishlistRepository.findById(wishlistId)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + id));
+                        new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + wishlistId));
         return WishlistEntityMapper.mapToWishlistDto(wishlist);
     }
 }
