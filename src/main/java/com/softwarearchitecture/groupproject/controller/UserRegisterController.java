@@ -3,14 +3,19 @@ import com.softwarearchitecture.groupproject.dto.UserRegistrationDto;
 import com.softwarearchitecture.groupproject.entity.User;
 import com.softwarearchitecture.groupproject.service.UserRegisterService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@AllArgsConstructor
 @RestController
-
 public class UserRegisterController {
 
+    @Autowired
     UserRegisterService userRegisterService;
+
+    @Autowired
+    public UserRegisterController(UserRegisterService userRegisterService) {
+        this.userRegisterService = userRegisterService;
+    }
 
     @GetMapping("/user")
     public User getUser(@RequestParam int id) {

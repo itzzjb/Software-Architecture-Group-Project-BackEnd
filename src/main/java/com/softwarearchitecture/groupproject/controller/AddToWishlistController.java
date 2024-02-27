@@ -7,13 +7,17 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@AllArgsConstructor
 @RestController
 public class AddToWishlistController {
 
     // Dependency Injection
     @Autowired
     AddToWishlistService addToWishlistService;
+
+    @Autowired
+    public AddToWishlistController(AddToWishlistService addToWishlistService) {
+        this.addToWishlistService = addToWishlistService;
+    }
 
     @GetMapping("/wishlist")
     public Wishlist getWishlist(@RequestParam int id) { return addToWishlistService.findWishlist(id); }
