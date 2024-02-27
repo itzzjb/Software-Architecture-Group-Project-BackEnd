@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class UserRegisterServiceImpl implements UserRegisterService {
+public class UserRegistrationServiceImpl implements UserRegisterService {
 
     UserRepository userRepository;
 
 
     @Override
     public void userRegistration(UserRegistrationDto userRegistrationDto) {
-        User user = UserEntityMapper.dtoToEntity(userRegistrationDto);
+        User user = UserEntityMapper.mapToUser(userRegistrationDto);
         userRepository.save(user);
     }
 

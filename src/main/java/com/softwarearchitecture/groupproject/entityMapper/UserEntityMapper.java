@@ -4,7 +4,7 @@ import com.softwarearchitecture.groupproject.dto.UserRegistrationDto;
 import com.softwarearchitecture.groupproject.entity.User;
 
 public class UserEntityMapper {
-     public static User dtoToEntity(UserRegistrationDto userRegistrationDto){
+     public static User mapToUser(UserRegistrationDto userRegistrationDto){
         return new User(
                 userRegistrationDto.getUserId(),
                 userRegistrationDto.getFirstName(),
@@ -15,5 +15,16 @@ public class UserEntityMapper {
         );
     }
 
+    public static UserRegistrationDto mapTOUserRegistrationDto(User user) {
+        return new UserRegistrationDto(
+                user.getUserId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getPhone(),
+                user.getPassword(),
+                user.getPassword()
+        );
+    }
 
 }

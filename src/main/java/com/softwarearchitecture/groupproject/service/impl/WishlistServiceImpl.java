@@ -4,19 +4,19 @@ import com.softwarearchitecture.groupproject.dto.WishlistDto;
 import com.softwarearchitecture.groupproject.entity.Wishlist;
 import com.softwarearchitecture.groupproject.entityMapper.WishlistEntityMapper;
 import com.softwarearchitecture.groupproject.repository.WishlistRepository;
-import com.softwarearchitecture.groupproject.service.AddToWishlistService;
+import com.softwarearchitecture.groupproject.service.WishlistService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class AddToWishlistServiceImpl implements AddToWishlistService {
+public class WishlistServiceImpl implements WishlistService {
 
     WishlistRepository wishlistRepository;
 
     @Override
     public void addToWishlist(WishlistDto wishlistDto) {
-        Wishlist wishlist = WishlistEntityMapper.dtoToEntity(wishlistDto);
+        Wishlist wishlist = WishlistEntityMapper.mapToWishlist(wishlistDto);
         wishlistRepository.save(wishlist);
     }
 

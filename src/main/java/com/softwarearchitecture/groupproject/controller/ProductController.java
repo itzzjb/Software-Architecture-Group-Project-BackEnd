@@ -1,7 +1,7 @@
 package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.ProductDto;
 import com.softwarearchitecture.groupproject.entity.Product;
-import com.softwarearchitecture.groupproject.service.AddingAProductService;
+import com.softwarearchitecture.groupproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     @Autowired
-    AddingAProductService addingAProductService;
+    ProductService productService;
 
     @Autowired
-    public ProductController(AddingAProductService addingAProductService) {
-        this.addingAProductService = addingAProductService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/product")
     public Product getProduct(@RequestParam int id) {
-        return addingAProductService.findProduct(id);
+        return productService.findProduct(id);
     }
 
 
     @PostMapping("/product")
-    public void addProduct(@RequestBody ProductDto productDto) { addingAProductService.addProduct(productDto); }
+    public void addProduct(@RequestBody ProductDto productDto) { productService.addProduct(productDto); }
 
 }
