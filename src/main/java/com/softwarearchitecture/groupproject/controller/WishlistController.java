@@ -19,8 +19,11 @@ public class WishlistController {
         this.wishlistService = wishlistService;
     }
 
-    @GetMapping
-    public Wishlist getWishlist(@RequestParam int id) { return wishlistService.findWishlist(id); }
+    @GetMapping("{id}")
+    public ResponseEntity<WishlistDto> getWishlist(@PathVariable("id") int id) {
+        WishlistDto wishlistDto = wishlistService.findWishlist(id);
+        return ResponseEntity.ok(wishlistDto);
+    }
 
     @PostMapping
     public ResponseEntity<WishlistDto> addWishlist(@RequestBody WishlistDto wishlistDto) {

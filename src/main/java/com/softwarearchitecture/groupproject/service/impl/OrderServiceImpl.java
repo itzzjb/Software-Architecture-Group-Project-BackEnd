@@ -3,6 +3,7 @@ package com.softwarearchitecture.groupproject.service.impl;
 import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
 import com.softwarearchitecture.groupproject.entityMapper.OrderEntityMapper;
+import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.OrderRepository;
 import com.softwarearchitecture.groupproject.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findOrder(int id) {
-        Order order =  orderRepository.findById(id);
-        return order;
+    public OrderDto getOrderById(int id) {
+        Order order =  orderRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Order doesn't exist with the given id: " + id));
+        return OrderEntityMapper.mapToOrderDto(order);
     }
 
 

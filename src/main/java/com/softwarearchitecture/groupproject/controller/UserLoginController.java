@@ -21,7 +21,7 @@ public class UserLoginController {
 
     @GetMapping("/userLogin")
     public ResponseEntity<String> userLogin(@RequestBody UserLoginDto userLoginDto) {
-        Boolean validity = userLoginService.userLogging(userLoginDto);
+        Boolean validity = userLoginService.userLogin(userLoginDto);
         if(validity){
             return ResponseEntity.ok().body("Logging Successfully Completed");
         }else

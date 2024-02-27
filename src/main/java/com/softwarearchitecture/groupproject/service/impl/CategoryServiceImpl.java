@@ -3,6 +3,7 @@ package com.softwarearchitecture.groupproject.service.impl;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.entityMapper.CategoryEntityMapper;
+import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.CategoryRepository;
 import com.softwarearchitecture.groupproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category findCategory(int id) {
-        Category category =  categoryRepository.findById(id);
-        return category;
+    public CategoryDto getCategoryById(int id) {
+        Category category =  categoryRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Category doesn't exist with the given id: " + id));
+        return CategoryEntityMapper.mapToCategoryDto(category);
     }
 }

@@ -11,6 +11,7 @@ import lombok.*;
 @Table(name = "categories")
 public class Category {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_id_seq")
     private int categoryId;
 
     @Column

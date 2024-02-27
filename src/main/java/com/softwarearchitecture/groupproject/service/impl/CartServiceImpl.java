@@ -3,6 +3,7 @@ package com.softwarearchitecture.groupproject.service.impl;
 import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.entityMapper.CartEntityMapper;
+import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.CartRepository;
 import com.softwarearchitecture.groupproject.service.CartService;
 import lombok.AllArgsConstructor;
@@ -22,9 +23,11 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Cart findCart(int id) {
-        Cart cart = cartRepository.findById(id);
-        return cart;
+    public CartDto getCartById(int id) {
+        Cart cart = cartRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Cart doesn't exist with the given id: " + id));
+        return CartEntityMapper.mapToCartDto(cart);
     }
 
     @Override

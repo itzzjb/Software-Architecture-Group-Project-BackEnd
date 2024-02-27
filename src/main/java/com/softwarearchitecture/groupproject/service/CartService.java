@@ -5,7 +5,7 @@ import com.softwarearchitecture.groupproject.entity.Cart;
 
 public interface CartService {
 
-    Cart findCart(int id);
+    CartDto getCartById(int id);
 
     CartDto createCart(CartDto cartDto);
 }
