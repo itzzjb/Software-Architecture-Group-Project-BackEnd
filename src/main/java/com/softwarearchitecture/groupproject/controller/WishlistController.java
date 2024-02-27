@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.WishlistDto;
 import com.softwarearchitecture.groupproject.entity.Wishlist;
 import com.softwarearchitecture.groupproject.service.WishlistService;
@@ -29,6 +30,12 @@ public class WishlistController {
     public ResponseEntity<WishlistDto> addWishlist(@RequestBody WishlistDto wishlistDto) {
         WishlistDto savedWishlistDto = wishlistService.createWishlist(wishlistDto);
         return new ResponseEntity<>(savedWishlistDto, HttpStatus.CREATED);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<WishlistDto> updateWishlist(@PathVariable("id") int wishlistId, @RequestBody WishlistDto updatedWishlistDto) {
+        WishlistDto wishlistDto = wishlistService.updateWishlist(wishlistId, updatedWishlistDto);
+        return ResponseEntity.ok(wishlistDto);
     }
 
 }

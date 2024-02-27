@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
@@ -38,6 +39,12 @@ public class OrderController {
     public ResponseEntity<List<OrderDto>> getAllOrders() {
         List<OrderDto> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable("id") int orderId, @RequestBody OrderDto updatedOrderDto) {
+        OrderDto orderDto = orderService.updateOrder(orderId, updatedOrderDto);
+        return ResponseEntity.ok(orderDto);
     }
 
 }
