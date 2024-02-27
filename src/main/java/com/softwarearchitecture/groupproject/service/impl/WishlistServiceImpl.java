@@ -52,4 +52,13 @@ public class WishlistServiceImpl implements WishlistService {
         return WishlistEntityMapper.mapToWishlistDto(updatedWishlist);
     }
 
+    @Override
+    public void deleteWishlist(int wishlistId) {
+        Wishlist wishlist = wishlistRepository.findById(wishlistId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + wishlistId));
+
+        wishlistRepository.deleteById(wishlistId);
+    }
+
 }

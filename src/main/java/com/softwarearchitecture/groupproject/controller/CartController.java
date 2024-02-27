@@ -19,8 +19,8 @@ public class CartController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<CartDto> getCart(@PathVariable("id") int id) {
-        CartDto cartDto = cartService.getCartById(id);
+    public ResponseEntity<CartDto> getCart(@PathVariable("id") int cartId) {
+        CartDto cartDto = cartService.getCartById(cartId);
         return ResponseEntity.ok(cartDto);
     }
 
@@ -34,6 +34,12 @@ public class CartController {
     public ResponseEntity<CartDto> updateCart(@PathVariable("id") int cartId, @RequestBody CartDto updatedCartDto) {
         CartDto cartDto = cartService.updateCart(cartId, updatedCartDto);
         return ResponseEntity.ok(cartDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteCart(@PathVariable("id") int cartId) {
+        cartService.deleteCart(cartId);
+        return ResponseEntity.ok("Cart item deleted successfully.");
     }
 
 }

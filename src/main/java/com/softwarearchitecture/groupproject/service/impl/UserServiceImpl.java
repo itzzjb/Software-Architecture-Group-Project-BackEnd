@@ -62,4 +62,13 @@ public class UserServiceImpl implements UserService {
         User updatedUser = userRepository.save(user);
         return UserEntityMapper.mapToUserDto(updatedUser);
     }
+
+    @Override
+    public void deleteUser(int userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
+
+        userRepository.deleteById(userId);
+    }
 }

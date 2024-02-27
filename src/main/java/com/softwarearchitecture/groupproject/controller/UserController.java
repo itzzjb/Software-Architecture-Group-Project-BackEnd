@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<UserDto> getUser(@PathVariable("id") int id) {
-        UserDto userDto = userService.findUser(id);
+    public ResponseEntity<UserDto> getUser(@PathVariable("id") int userId) {
+        UserDto userDto = userService.findUser(userId);
         return ResponseEntity.ok(userDto);
     }
 
@@ -43,6 +43,12 @@ public class UserController {
     public ResponseEntity<UserDto> updateUser(@PathVariable("id") int userId, @RequestBody UserDto updatedUserDto) {
         UserDto userDto = userService.updateUser(userId, updatedUserDto);
         return ResponseEntity.ok(userDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteCart(@PathVariable("id") int userId) {
+        userService.deleteUser(userId);
+        return ResponseEntity.ok("User deleted successfully.");
     }
 
 }

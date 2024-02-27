@@ -11,5 +11,6 @@ public interface OrderService {
     List<OrderDto> getAllOrders();
     // List<OrderDto> getAllOrders(int id);
     OrderDto updateOrder(int orderId, OrderDto updatedOrderDto);
+    void deleteOrder(int orderId);
 
 }

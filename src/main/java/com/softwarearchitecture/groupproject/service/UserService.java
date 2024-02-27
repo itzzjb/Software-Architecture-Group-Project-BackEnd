@@ -9,4 +9,5 @@ public interface UserService {
     UserDto findUser(int userId);
     List<UserDto> getAllUsers();
     UserDto updateUser(int userId, UserDto updatedUserDto);
+    void deleteUser(int userId);
 }

@@ -64,4 +64,13 @@ public class CategoryServiceImpl implements CategoryService {
         return CategoryEntityMapper.mapToCategoryDto(updatedCategory);
     }
 
+    @Override
+    public void deleteCategory(int categoryId) {
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Category doesn't exist with the given id: " + categoryId));
+
+        categoryRepository.deleteById(categoryId);
+    }
+
 }

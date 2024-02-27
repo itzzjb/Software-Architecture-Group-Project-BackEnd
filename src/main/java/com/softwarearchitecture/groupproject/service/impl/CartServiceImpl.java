@@ -53,4 +53,13 @@ public class CartServiceImpl implements CartService {
         return CartEntityMapper.mapToCartDto(updatedCart);
     }
 
+    @Override
+    public void deleteCart(int cartId) {
+        Cart cart = cartRepository.findById(cartId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Cart doesn't exist with the given id: " + cartId));
+
+        cartRepository.deleteById(cartId);
+    }
+
 }

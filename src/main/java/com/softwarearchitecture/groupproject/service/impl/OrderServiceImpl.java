@@ -66,4 +66,13 @@ public class OrderServiceImpl implements OrderService {
         return OrderEntityMapper.mapToOrderDto(updatedOrder);
     }
 
+    @Override
+    public void deleteOrder(int orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Order doesn't exist with the given id: " + orderId));
+
+        orderRepository.deleteById(orderId);
+    }
+
 }
