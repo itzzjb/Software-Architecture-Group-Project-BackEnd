@@ -4,7 +4,7 @@ import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
 
 public interface OrderService {
-    void createOrder(OrderDto orderDto);
+    OrderDto createOrder(OrderDto orderDto);
 
     Order findOrder(int id);
 }

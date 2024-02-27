@@ -3,6 +3,8 @@ import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
 import com.softwarearchitecture.groupproject.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,7 +26,9 @@ public class OrderController {
 
 
     @PostMapping
-    public void addOrder(@RequestBody OrderDto orderDto) {
-        orderService.createOrder(orderDto); }
+    public ResponseEntity<OrderDto> addOrder(@RequestBody OrderDto orderDto) {
+        OrderDto savedOrderDto = orderService.createOrder(orderDto);
+        return new ResponseEntity<>(savedOrderDto, HttpStatus.CREATED);
+    }
 
 }
