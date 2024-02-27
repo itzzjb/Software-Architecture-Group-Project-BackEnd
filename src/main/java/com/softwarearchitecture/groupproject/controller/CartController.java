@@ -3,6 +3,8 @@ import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.entity.Cart;
 import com.softwarearchitecture.groupproject.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +23,9 @@ public class CartController {
     public Cart getCart(@RequestParam int id) { return cartService.findCart(id);}
 
     @PostMapping
-    public void addCart(@RequestBody CartDto cartDto) { cartService.createCart(cartDto); }
+    public ResponseEntity<CartDto> addCart(@RequestBody CartDto cartDto) {
+        CartDto savedCartDto = cartService.createCart(cartDto);
+        return new ResponseEntity<>(savedCartDto, HttpStatus.CREATED);
+    }
 
 }

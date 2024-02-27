@@ -5,7 +5,7 @@ import com.softwarearchitecture.groupproject.entity.Cart;
 
 public class CartEntityMapper {
 
-    public static Cart mapToCartDto(CartDto cartDto){
+    public static Cart mapToCart(CartDto cartDto){
         return new Cart(
                 cartDto.getCartId(),
                 cartDto.getUserId(),
@@ -15,7 +15,7 @@ public class CartEntityMapper {
         );
     }
 
-    public static CartDto mapToCart(Cart cart){
+    public static CartDto mapToCartDto(Cart cart){
         return new CartDto(
                 cart.getCartId(),
                 cart.getUserId(),
