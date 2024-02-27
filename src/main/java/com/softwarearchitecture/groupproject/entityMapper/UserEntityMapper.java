@@ -1,22 +1,22 @@
 package com.softwarearchitecture.groupproject.entityMapper;
 
-import com.softwarearchitecture.groupproject.dto.UserRegistrationDto;
+import com.softwarearchitecture.groupproject.dto.UserDto;
 import com.softwarearchitecture.groupproject.entity.User;
 
 public class UserEntityMapper {
-     public static User mapToUser(UserRegistrationDto userRegistrationDto){
+     public static User mapToUser(UserDto userDto){
         return new User(
-                userRegistrationDto.getUserId(),
-                userRegistrationDto.getFirstName(),
-                userRegistrationDto.getLastName(),
-                userRegistrationDto.getEmail(),
-                userRegistrationDto.getPhone(),
-                userRegistrationDto.getPassword()
+                userDto.getUserId(),
+                userDto.getFirstName(),
+                userDto.getLastName(),
+                userDto.getEmail(),
+                userDto.getPhone(),
+                userDto.getPassword()
         );
     }
 
-    public static UserRegistrationDto mapTOUserRegistrationDto(User user) {
-        return new UserRegistrationDto(
+    public static UserDto mapTOUserRegistrationDto(User user) {
+        return new UserDto(
                 user.getUserId(),
                 user.getFirstName(),
                 user.getLastName(),

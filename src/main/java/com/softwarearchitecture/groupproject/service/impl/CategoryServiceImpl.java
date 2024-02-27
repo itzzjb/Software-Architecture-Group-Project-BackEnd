@@ -9,6 +9,9 @@ import com.softwarearchitecture.groupproject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 
 public class CategoryServiceImpl implements CategoryService {
@@ -37,4 +40,13 @@ public class CategoryServiceImpl implements CategoryService {
                         new ResourceNotFoundException("Category doesn't exist with the given id: " + id));
         return CategoryEntityMapper.mapToCategoryDto(category);
     }
+
+    @Override
+    public List<CategoryDto> getAllCategories() {
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream().map((category) ->
+                CategoryEntityMapper.mapToCategoryDto(category))
+                .collect(Collectors.toList());
+    }
+
 }

@@ -1,13 +1,12 @@
 package com.softwarearchitecture.groupproject.dto;
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserRegistrationDto {
+public class UserDto {
     private int userId;
     private String firstName;
     private String lastName;
