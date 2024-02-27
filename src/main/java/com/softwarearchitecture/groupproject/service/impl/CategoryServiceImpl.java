@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void addCategory(CategoryDto categoryDto) {
-        Category category = CategoryEntityMapper.dtoToEntity(categoryDto);
+        Category category = CategoryEntityMapper.mapToCategoryDto(categoryDto);
         categoryRepository.save(category);
     }
 
