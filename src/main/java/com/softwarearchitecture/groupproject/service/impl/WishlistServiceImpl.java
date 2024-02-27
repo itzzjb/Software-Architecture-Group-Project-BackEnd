@@ -15,9 +15,10 @@ public class WishlistServiceImpl implements WishlistService {
     WishlistRepository wishlistRepository;
 
     @Override
-    public void createWishlist(WishlistDto wishlistDto) {
+    public WishlistDto createWishlist(WishlistDto wishlistDto) {
         Wishlist wishlist = WishlistEntityMapper.mapToWishlist(wishlistDto);
-        wishlistRepository.save(wishlist);
+        Wishlist savedWishlist = wishlistRepository.save(wishlist);
+        return WishlistEntityMapper.mapToWishlistDto(savedWishlist);
     }
 
     @Override
