@@ -5,7 +5,7 @@ import com.softwarearchitecture.groupproject.entity.Order;
 
 public class OrderEntityMapper {
 
-    public static Order dtoToEntity(OrderDto orderDto) {
+    public static Order mapToOrder(OrderDto orderDto) {
         return new Order (
                 orderDto.getOrderId(),
                 orderDto.getUserId(),

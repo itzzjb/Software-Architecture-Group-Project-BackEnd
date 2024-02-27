@@ -21,7 +21,7 @@ public class PlacingOrderServiceImpl implements PlacingOrderService {
 
     @Override
     public void placeOrder(OrderDto orderDto) {
-        Order order = OrderEntityMapper.dtoToEntity(orderDto);
+        Order order = OrderEntityMapper.mapToOrder(orderDto);
         orderRepository.save(order);
     }
 

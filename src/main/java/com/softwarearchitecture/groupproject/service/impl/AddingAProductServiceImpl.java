@@ -21,7 +21,7 @@ public class AddingAProductServiceImpl implements AddingAProductService {
 
     @Override
     public void addProduct(ProductDto productDto) {
-        Product product = ProductEntityMapper.dtoToEntity(productDto);
+        Product product = ProductEntityMapper.mapToProduct(productDto);
         productRepository.save(product);
     }
 
