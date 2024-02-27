@@ -4,7 +4,7 @@ import com.softwarearchitecture.groupproject.dto.ProductDto;
 import com.softwarearchitecture.groupproject.entity.Product;
 
 public interface ProductService {
-    void createProduct(ProductDto productDto);
+    ProductDto createProduct(ProductDto productDto);
 
     Product findProduct(int id);
 }
