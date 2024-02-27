@@ -22,7 +22,7 @@ public class AddToCartServiceImpl implements AddToCartService {
 
     @Override
     public void addToCart(CartDto cartDto) {
-        Cart cart = CartEntityMapper.dtoToEntity(cartDto);
+        Cart cart = CartEntityMapper.mapToCartDto(cartDto);
         cartRepository.save(cart);
     }
 }
