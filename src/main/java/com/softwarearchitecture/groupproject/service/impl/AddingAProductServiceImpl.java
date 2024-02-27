@@ -1,8 +1,8 @@
 package com.softwarearchitecture.groupproject.service.impl;
 
-import com.softwarearchitecture.groupproject.dto.AddingAProductDto;
+import com.softwarearchitecture.groupproject.dto.ProductDto;
 import com.softwarearchitecture.groupproject.entity.Product;
-import com.softwarearchitecture.groupproject.entityMapper.AddingAProductEntityMapper;
+import com.softwarearchitecture.groupproject.entityMapper.ProductEntityMapper;
 import com.softwarearchitecture.groupproject.repository.ProductRepository;
 import com.softwarearchitecture.groupproject.service.AddingAProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class AddingAProductServiceImpl implements AddingAProductService {
     }
 
     @Override
-    public void addProduct(AddingAProductDto addingAProductDto) {
-        Product product = AddingAProductEntityMapper.dtoToEntity(addingAProductDto);
+    public void addProduct(ProductDto productDto) {
+        Product product = ProductEntityMapper.dtoToEntity(productDto);
         productRepository.save(product);
     }
 

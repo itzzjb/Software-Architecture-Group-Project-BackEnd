@@ -6,11 +6,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class AddToCartDto {
-    public int cartId;
+public class WishlistDto {
+    public int wishlistId;
     public int userId;
     public int productId;
-    public int quantity;
-    public int totalProductPrice;
-
 }

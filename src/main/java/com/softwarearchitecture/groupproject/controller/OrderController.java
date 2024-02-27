@@ -1,21 +1,18 @@
 package com.softwarearchitecture.groupproject.controller;
-import com.softwarearchitecture.groupproject.dto.PlacingOrderDto;
+import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
-import com.softwarearchitecture.groupproject.repository.OrderRepository;
 import com.softwarearchitecture.groupproject.service.PlacingOrderService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class PlacingOrderController {
+public class OrderController {
 
-    // Dependency Injection
     @Autowired
     PlacingOrderService placingOrderService;
 
     @Autowired
-    public PlacingOrderController(PlacingOrderService placingOrderService) {
+    public OrderController(PlacingOrderService placingOrderService) {
         this.placingOrderService = placingOrderService;
     }
 
@@ -26,7 +23,7 @@ public class PlacingOrderController {
 
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody PlacingOrderDto placingOrderDto) {
-        placingOrderService.placeOrder(placingOrderDto); }
+    public void addOrder(@RequestBody OrderDto orderDto) {
+        placingOrderService.placeOrder(orderDto); }
 
 }

@@ -1,14 +1,16 @@
 package com.softwarearchitecture.groupproject.dto;
 
-import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class AddToWishlistDto {
-    public int wishlistId;
+public class CartDto {
+    public int cartId;
     public int userId;
     public int productId;
+    public int quantity;
+    public int totalProductPrice;
+
 }
