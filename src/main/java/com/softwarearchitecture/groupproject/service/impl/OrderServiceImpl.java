@@ -33,10 +33,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDto getOrderById(int id) {
-        Order order =  orderRepository.findById(id)
+    public OrderDto getOrderById(int orderId) {
+        Order order =  orderRepository.findById(orderId)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Order doesn't exist with the given id: " + id));
+                        new ResourceNotFoundException("Order doesn't exist with the given id: " + orderId));
         return OrderEntityMapper.mapToOrderDto(order);
     }
 

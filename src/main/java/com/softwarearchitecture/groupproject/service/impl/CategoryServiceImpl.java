@@ -34,10 +34,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto getCategoryById(int id) {
-        Category category =  categoryRepository.findById(id)
+    public CategoryDto getCategoryById(int categoryId) {
+        Category category =  categoryRepository.findById(categoryId)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Category doesn't exist with the given id: " + id));
+                        new ResourceNotFoundException("Category doesn't exist with the given id: " + categoryId));
         return CategoryEntityMapper.mapToCategoryDto(category);
     }
 

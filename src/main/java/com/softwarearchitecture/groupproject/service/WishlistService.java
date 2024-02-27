@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface WishlistService {
     WishlistDto createWishlist(WishlistDto wishlistDto);
-    WishlistDto findWishlist(int id);
+    WishlistDto findWishlist(int wishlistId);
     // List<Wishlist> findAllWishlist(int id);
 
 }

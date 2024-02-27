@@ -31,10 +31,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto findUser(int id) {
-        User user = userRepository.findById(id)
+    public UserDto findUser(int userId) {
+        User user = userRepository.findById(userId)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("User doesn't exist with the given id: " + id));
+                        new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
         return UserEntityMapper.mapTOUserRegistrationDto(user);
     }
 

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserService {
     UserDto createUser(UserDto userDto);
-    UserDto findUser(int id);
+    UserDto findUser(int userId);
     List<UserDto> getAllUsers();
 }

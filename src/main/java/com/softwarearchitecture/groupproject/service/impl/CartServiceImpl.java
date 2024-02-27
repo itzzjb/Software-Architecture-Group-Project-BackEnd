@@ -23,10 +23,10 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public CartDto getCartById(int id) {
-        Cart cart = cartRepository.findById(id)
+    public CartDto getCartById(int cartId) {
+        Cart cart = cartRepository.findById(cartId)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Cart doesn't exist with the given id: " + id));
+                        new ResourceNotFoundException("Cart doesn't exist with the given id: " + cartId));
         return CartEntityMapper.mapToCartDto(cart);
     }
 
