@@ -24,8 +24,8 @@ public class ProductController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProductDto> getProduct(@PathVariable("id") int id) {
-        ProductDto productDto = productService.getProductById(id);
+    public ResponseEntity<ProductDto> getProduct(@PathVariable("id") int productId) {
+        ProductDto productDto = productService.getProductById(productId);
         return ResponseEntity.ok(productDto);
     }
 
@@ -45,6 +45,12 @@ public class ProductController {
     public ResponseEntity<ProductDto> updateProduct(@PathVariable("id") int productId, @RequestBody ProductDto updatedProductDto) {
         ProductDto productDto = productService.updateProduct(productId, updatedProductDto);
         return ResponseEntity.ok(productDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") int productId) {
+        productService.deleteProduct(productId);
+        return ResponseEntity.ok("Product deleted successfully.");
     }
 
 }

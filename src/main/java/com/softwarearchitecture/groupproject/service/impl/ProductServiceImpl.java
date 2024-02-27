@@ -64,4 +64,13 @@ public class ProductServiceImpl implements ProductService {
         return ProductEntityMapper.mapToProductDto(updatedProduct);
     }
 
+    @Override
+    public void deleteProduct(int productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Product doesn't exist with the given id: " + productId));
+
+        productRepository.deleteById(productId);
+    }
+
 }
