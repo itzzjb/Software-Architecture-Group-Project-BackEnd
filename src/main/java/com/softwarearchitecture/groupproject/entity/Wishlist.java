@@ -14,6 +14,7 @@ public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wishlist_id_seq")
     public int wishlistId;
+
     @Column
     public int userId;
 

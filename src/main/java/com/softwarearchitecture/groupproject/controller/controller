@@ -1,6 +1,0 @@
-Controller Layer:
-This layer is responsible for handling incoming HTTP requests.
-Controllers receive requests, process them, and interact with the service layer to retrieve or manipulate data.
-Controllers are often annotated with @Controller or @RestController.
-
-todo: Create UserController, OrderController, ProductController, WishlistController, CartController, CategoryController

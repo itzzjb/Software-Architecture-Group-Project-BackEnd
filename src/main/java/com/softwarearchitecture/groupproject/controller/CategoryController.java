@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.service.CategoryService;
@@ -22,8 +23,8 @@ public class CategoryController {
     }
 
     @GetMapping({"{id}"})
-    public ResponseEntity<CategoryDto> getCategory(@PathVariable("id") int id) {
-        CategoryDto categoryDto = categoryService.getCategoryById(id);
+    public ResponseEntity<CategoryDto> getCategory(@PathVariable("id") int categoryId) {
+        CategoryDto categoryDto = categoryService.getCategoryById(categoryId);
         return ResponseEntity.ok(categoryDto);
     }
 
@@ -37,6 +38,18 @@ public class CategoryController {
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         List<CategoryDto> categories = categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<CategoryDto> updateCategory(@PathVariable("id") int categoryId, @RequestBody CategoryDto updatedCategoryDto) {
+        CategoryDto categoryDto = categoryService.updateCategory(categoryId, updatedCategoryDto);
+        return ResponseEntity.ok(categoryDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteCategory(@PathVariable("id") int categoryId) {
+        categoryService.deleteCategory(categoryId);
+        return ResponseEntity.ok("Category deleted successfully.");
     }
 
 }

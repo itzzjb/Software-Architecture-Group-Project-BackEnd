@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     public UserDto createUser(UserDto userDto) {
         User user = UserEntityMapper.mapToUser(userDto);
         User savedUser = userRepository.save(user);
-        return UserEntityMapper.mapTOUserRegistrationDto(savedUser);
+        return UserEntityMapper.mapToUserDto(savedUser);
     }
 
     @Override
@@ -35,14 +35,40 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() ->
                         new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
-        return UserEntityMapper.mapTOUserRegistrationDto(user);
+        return UserEntityMapper.mapToUserDto(user);
     }
 
     @Override
     public List<UserDto> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream().map((user) ->
-                        UserEntityMapper.mapTOUserRegistrationDto(user))
+                        UserEntityMapper.mapToUserDto(user))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDto updateUser(int userId, UserDto updatedUserDto) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
+
+        user.setUserId(updatedUserDto.getUserId());
+        user.setFirstName(updatedUserDto.getFirstName());
+        user.setLastName(updatedUserDto.getLastName());
+        user.setEmail(updatedUserDto.getEmail());
+        user.setPhone(updatedUserDto.getPhone());
+        user.setPassword(updatedUserDto.getPassword());
+
+        User updatedUser = userRepository.save(user);
+        return UserEntityMapper.mapToUserDto(updatedUser);
+    }
+
+    @Override
+    public void deleteUser(int userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
+
+        userRepository.deleteById(userId);
     }
 }

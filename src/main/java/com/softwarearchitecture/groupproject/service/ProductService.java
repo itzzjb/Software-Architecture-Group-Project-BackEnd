@@ -9,5 +9,7 @@ public interface ProductService {
     ProductDto createProduct(ProductDto productDto);
     ProductDto getProductById(int productId);
     List<ProductDto> getAllProducts();
+    ProductDto updateProduct(int productId, ProductDto updatedProductDto);
+    void deleteProduct(int productId);
 }
 

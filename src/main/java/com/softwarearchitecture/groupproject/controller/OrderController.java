@@ -1,4 +1,5 @@
 package com.softwarearchitecture.groupproject.controller;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.CategoryDto;
 import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
@@ -23,8 +24,8 @@ public class OrderController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<OrderDto> getOrder(@PathVariable("id") int id) {
-        OrderDto orderDto = orderService.getOrderById(id);
+    public ResponseEntity<OrderDto> getOrder(@PathVariable("id") int orderId) {
+        OrderDto orderDto = orderService.getOrderById(orderId);
         return ResponseEntity.ok(orderDto);
     }
 
@@ -38,6 +39,18 @@ public class OrderController {
     public ResponseEntity<List<OrderDto>> getAllOrders() {
         List<OrderDto> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable("id") int orderId, @RequestBody OrderDto updatedOrderDto) {
+        OrderDto orderDto = orderService.updateOrder(orderId, updatedOrderDto);
+        return ResponseEntity.ok(orderDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteOrder(@PathVariable("id") int orderId) {
+        orderService.deleteOrder(orderId);
+        return ResponseEntity.ok("Order deleted successfully.");
     }
 
 }

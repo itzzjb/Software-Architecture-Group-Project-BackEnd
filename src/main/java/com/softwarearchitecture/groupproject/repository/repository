@@ -1,6 +1,0 @@
-Repository/DAO Layer:
-This layer is responsible for interacting with the database or any external data source.
-It includes interfaces or classes that define methods for performing CRUD (Create, Read, Update, Delete) operations.
-Repositories are often annotated with @Repository.
-
-todo: Create UserRepository, OrderRepository, ProductRepository, WishlistRepository, CartRepository, CategoryRepository

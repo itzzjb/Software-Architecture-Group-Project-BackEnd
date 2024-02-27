@@ -9,5 +9,7 @@ public interface CartService {
     CartDto getCartById(int cartId);
     CartDto createCart(CartDto cartDto);
     // List<CartDto> getAllCart(int id);
+    CartDto updateCart(int cartId, CartDto updatedCartDto);
+    void deleteCart(int cartId);
 
 }
