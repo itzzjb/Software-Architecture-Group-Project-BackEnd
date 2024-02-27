@@ -14,4 +14,15 @@ public class OrderEntityMapper {
                 orderDto.getDateTime()
         );
     }
+
+    public static OrderDto mapToOrderDto(Order order) {
+        return new OrderDto(
+                order.getOrderId(),
+                order.getUserId(),
+                order.getTotalQuantity(),
+                order.getTotalPrice(),
+                order.getDateTime()
+        );
+    }
+
 }
