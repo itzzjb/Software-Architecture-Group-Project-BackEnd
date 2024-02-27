@@ -17,7 +17,6 @@ public class AddingAProductController {
         this.addingAProductService = addingAProductService;
     }
 
-
     @GetMapping("/product")
     public Product getProduct(@RequestParam int id) {
         return addingAProductService.findProduct(id);

@@ -19,7 +19,6 @@ public class PlacingOrderController {
         this.placingOrderService = placingOrderService;
     }
 
-
     @GetMapping("/order")
     public Order getOrder(@RequestParam int id) {
         return placingOrderService.findOrder(id);
