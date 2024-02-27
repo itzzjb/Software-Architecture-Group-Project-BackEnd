@@ -1,13 +1,18 @@
 package com.softwarearchitecture.groupproject.service.impl;
 
 import com.softwarearchitecture.groupproject.dto.OrderDto;
+import com.softwarearchitecture.groupproject.entity.Category;
 import com.softwarearchitecture.groupproject.entity.Order;
+import com.softwarearchitecture.groupproject.entityMapper.CategoryEntityMapper;
 import com.softwarearchitecture.groupproject.entityMapper.OrderEntityMapper;
 import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.OrderRepository;
 import com.softwarearchitecture.groupproject.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -35,5 +40,12 @@ public class OrderServiceImpl implements OrderService {
         return OrderEntityMapper.mapToOrderDto(order);
     }
 
+    @Override
+    public List<OrderDto> getAllOrders() {
+        List<Order> orders = orderRepository.findAll();
+        return orders.stream().map((order) ->
+                        OrderEntityMapper.mapToOrderDto(order))
+                .collect(Collectors.toList());
+    }
 
 }
