@@ -1,12 +1,10 @@
 package com.softwarearchitecture.groupproject.entityMapper;
 
-import com.softwarearchitecture.groupproject.dto.AddToCartDto;
-import com.softwarearchitecture.groupproject.dto.AddToWishlistDto;
-import com.softwarearchitecture.groupproject.entity.Cart;
+import com.softwarearchitecture.groupproject.dto.WishlistDto;
 import com.softwarearchitecture.groupproject.entity.Wishlist;
 
-public class AddToWishlistEntityMapper {
-    public static Wishlist dtoToEntity(AddToWishlistDto addTowishlistDto){
+public class WishlistEntityMapper {
+    public static Wishlist dtoToEntity(WishlistDto addTowishlistDto){
 
         return new Wishlist(
                 addTowishlistDto.getWishlistId(),
@@ -15,4 +13,5 @@ public class AddToWishlistEntityMapper {
 
         );
     }
+
 }

@@ -8,15 +8,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class AddingAProductDto {
-    private int productId;
+public class OrderDto {
 
-    private String productName;
+    private int orderId;
 
-    private int quantity;
+    private int userId;
 
-    private int price;
+    private int totalQuantity;
 
-    private int categoryId;
+    private int totalPrice;
+
+    private String dateTime;
 
 }

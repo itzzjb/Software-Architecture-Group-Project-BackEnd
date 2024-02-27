@@ -1,10 +1,10 @@
 package com.softwarearchitecture.groupproject.service;
 
-import com.softwarearchitecture.groupproject.dto.PlacingOrderDto;
+import com.softwarearchitecture.groupproject.dto.OrderDto;
 import com.softwarearchitecture.groupproject.entity.Order;
 
 public interface PlacingOrderService {
-    void placeOrder(PlacingOrderDto placingOrderDto);
+    void placeOrder(OrderDto orderDto);
 
     Order findOrder(int id);
 }

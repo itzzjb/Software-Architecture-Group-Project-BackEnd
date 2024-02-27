@@ -1,8 +1,8 @@
 package com.softwarearchitecture.groupproject.service.impl;
 
-import com.softwarearchitecture.groupproject.dto.AddToCartDto;
+import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.entity.Cart;
-import com.softwarearchitecture.groupproject.entityMapper.AddToCartEntityMapper;
+import com.softwarearchitecture.groupproject.entityMapper.CartEntityMapper;
 import com.softwarearchitecture.groupproject.repository.CartRepository;
 import com.softwarearchitecture.groupproject.service.AddToCartService;
 import lombok.AllArgsConstructor;
@@ -21,8 +21,8 @@ public class AddToCartServiceImpl implements AddToCartService {
     }
 
     @Override
-    public void addToCart(AddToCartDto addToCartDto) {
-        Cart cart = AddToCartEntityMapper.dtoToEntity(addToCartDto);
+    public void addToCart(CartDto cartDto) {
+        Cart cart = CartEntityMapper.dtoToEntity(cartDto);
         cartRepository.save(cart);
     }
 }

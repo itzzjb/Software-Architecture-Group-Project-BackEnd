@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CategoryController {
 
-    // Dependency Injection
     @Autowired
     CategoryService categoryService;
 
