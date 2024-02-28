@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/userLogin")
 public class UserLoginController {
@@ -19,7 +19,7 @@ public class UserLoginController {
         this.userLoginService = userLoginService;
     }
 
-    @GetMapping("/userLogin")
+    @PostMapping
     public ResponseEntity<String> userLogin(@RequestBody UserLoginDto userLoginDto) {
         Boolean validity = userLoginService.userLogin(userLoginDto);
         if(validity){
