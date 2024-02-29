@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WishlistServiceImpl implements WishlistService {
 
@@ -36,6 +38,11 @@ public class WishlistServiceImpl implements WishlistService {
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Wishlist doesn't exist with the given id: " + wishlistId));
         return WishlistEntityMapper.mapToWishlistDto(wishlist);
+    }
+
+    @Override
+    public List<Wishlist> findAllWishlist(int id) {
+        return null;
     }
 
     @Override

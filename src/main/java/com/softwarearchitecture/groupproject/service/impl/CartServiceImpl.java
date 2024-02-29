@@ -40,6 +40,11 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    public List<CartDto> getAllCart(int id) {
+        return null;
+    }
+
+    @Override
     public CartDto updateCart(int cartId, CartDto updatedCartDto) {
         Cart cart = cartRepository.findById(cartId)
                 .orElseThrow(() ->
@@ -62,11 +67,6 @@ public class CartServiceImpl implements CartService {
                         new ResourceNotFoundException("Cart doesn't exist with the given id: " + cartId));
 
         cartRepository.deleteById(cartId);
-    }
-
-    @Override
-    public List<CartDto> getAllCart(int id) {
-        return null;
     }
 
 }
