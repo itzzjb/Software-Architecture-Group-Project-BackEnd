@@ -51,6 +51,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<OrderDto> getAllOrders(int id) {
+        return null;
+    }
+
+    @Override
     public OrderDto updateOrder(int orderId, OrderDto updatedOrderDto) {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() ->

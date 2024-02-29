@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -60,6 +62,11 @@ public class CartServiceImpl implements CartService {
                         new ResourceNotFoundException("Cart doesn't exist with the given id: " + cartId));
 
         cartRepository.deleteById(cartId);
+    }
+
+    @Override
+    public List<CartDto> getAllCart(int id) {
+        return null;
     }
 
 }
