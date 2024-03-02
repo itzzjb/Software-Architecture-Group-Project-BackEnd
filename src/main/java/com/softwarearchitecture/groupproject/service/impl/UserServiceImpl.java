@@ -6,13 +6,18 @@ import com.softwarearchitecture.groupproject.entityMapper.UserEntityMapper;
 import com.softwarearchitecture.groupproject.exception.ResourceNotFoundException;
 import com.softwarearchitecture.groupproject.repository.UserRepository;
 import com.softwarearchitecture.groupproject.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -70,5 +75,16 @@ public class UserServiceImpl implements UserService {
                         new ResourceNotFoundException("User doesn't exist with the given id: " + userId));
 
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public UserDetailsService userDetailsService () {
+        return new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) {
+                return userRepository.findByEmail(username)
+                        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+            }
+        };
     }
 }

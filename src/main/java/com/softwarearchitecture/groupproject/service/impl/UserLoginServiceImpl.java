@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -18,10 +19,10 @@ public class UserLoginServiceImpl implements UserLoginService {
 
     public Boolean userLogin(UserLoginDto userLoginDto) {
         String email = userLoginDto.getEmail();
-        User user = userRepository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
 
         //Password Validation
-        if (Objects.equals(userLoginDto.getPassword() , user.getPassword())){
+        if (Objects.equals(userLoginDto.getPassword() , user.get().getPassword())){
             return true;
         }else
             return false;

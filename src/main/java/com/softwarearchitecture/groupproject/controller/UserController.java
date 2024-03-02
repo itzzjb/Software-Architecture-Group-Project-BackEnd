@@ -2,6 +2,7 @@ package com.softwarearchitecture.groupproject.controller;
 import com.softwarearchitecture.groupproject.dto.CartDto;
 import com.softwarearchitecture.groupproject.dto.UserDto;
 import com.softwarearchitecture.groupproject.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,8 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1/user")
+@RequiredArgsConstructor
 public class UserController {
 
     @Autowired
